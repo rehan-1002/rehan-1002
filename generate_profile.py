@@ -22,15 +22,22 @@ STATUS = "🟢 Architecting High-Performance Systems"
 BIO = "Building sleek web apps, distributed systems, and SMIL graphics."
 
 STACK_ITEMS = [
-    ("Python", "#3572A5"),
-    ("TypeScript", "#3178C6"),
+    ("HTML5", "#E34F26"),
+    ("CSS3", "#1572B6"),
+    ("JavaScript", "#F7DF1E"),
     ("React", "#61DAFB"),
     ("Next.js", "#FFFFFF"),
     ("Node.js", "#339933"),
+    ("Python", "#3572A5"),
+    ("MongoDB", "#47A248"),
+    ("Supabase", "#3ECF8E"),
+    ("Firebase", "#FFCA28"),
+    ("Vercel", "#000000"),
+    ("Git", "#F05032"),
+    ("GitHub", "#181717"),
     ("Docker", "#2496ED"),
-    ("PostgreSQL", "#4169E1"),
-    ("GraphQL", "#E10098"),
 ]
+
 
 STATS = [
     ("Public Repos", "42"),
@@ -326,30 +333,29 @@ def build_info_card_svg(output_path="info-card.svg"):
     # Info Items Data Configuration
     info_rows = [
         ("ABOUT", TITLE, "label-orange", "🟧"),
-        ("LOCATION", LOCATION, "label-purple", "🟪"),
+        ("FRONTEND", "HTML5 • CSS3 • JS • React • Next.js", "label-blue", "🟦"),
+        ("BACKEND & DB", "Node.js • Python • MongoDB • Supabase", "label-green", "🟩"),
+        ("TOOLS & CLOUD", "Git • GitHub • Vercel • Firebase • Docker", "label-purple", "🟪"),
+        ("LOCATION", LOCATION, "label-white", "⬜"),
         ("STATUS", STATUS, "label-green", "🟢"),
-        ("PUBLIC REPOS", "42 Repositories // 1.2k+ Stars", "label-blue", "🟦"),
-        ("CORE STACK", "Python • TypeScript • React • Next.js • Docker", "label-orange", "🟧"),
-        ("ARCHITECTURE", "SMIL SVG • Microservices • Distributed Systems", "label-purple", "🟪"),
-        ("UPTIME", "99.99% Continuous Deployment", "label-green", "🟩"),
     ]
 
     start_y = 96
-    row_height = 28.5
+    row_height = 29.5
 
     for idx, (label, val, color_cls, icon) in enumerate(info_rows):
         y_pos = start_y + (idx * row_height)
-        delay = round(idx * 0.06, 2)
+        delay = round(idx * 0.02, 2)  # Fast instant loading
 
         # Staggered slide-up & fade-in SMIL animation
         svg.append(f'<g transform="translate(24, {y_pos})" opacity="0">')
-        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{delay}s" dur="0.25s" fill="freeze"/>')
-        svg.append(f'<animateTransform attributeName="transform" type="translate" values="24,{y_pos+10}; 24,{y_pos}" begin="{delay}s" dur="0.25s" fill="freeze"/>')
+        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{delay}s" dur="0.15s" fill="freeze"/>')
+        svg.append(f'<animateTransform attributeName="transform" type="translate" values="24,{y_pos+5}; 24,{y_pos}" begin="{delay}s" dur="0.15s" fill="freeze"/>')
 
         # Icon + Label
         svg.append(f'<text x="0" y="12" class="{color_cls}">{icon} {label.ljust(13)}:</text>')
         # Value Text
-        svg.append(f'<text x="145" y="12" class="val-text">{val}</text>')
+        svg.append(f'<text x="155" y="12" class="val-text">{val}</text>')
 
         svg.append('</g>')
 
@@ -358,7 +364,8 @@ def build_info_card_svg(output_path="info-card.svg"):
     colors_row1 = ["#161b22", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#f8f8f2"]
     colors_row2 = ["#6272a4", "#ff6e6e", "#69ff94", "#ffffa5", "#d6acff", "#ff92d0", "#a4ffff", "#ffffff"]
 
-    block_delay_start = round(len(info_rows) * 0.06 + 0.1, 2)
+    block_delay_start = round(len(info_rows) * 0.02 + 0.05, 2)
+
     svg.append(f'<g transform="translate(24, {palette_y})">')
     
     # Render palette blocks row 1
@@ -567,12 +574,21 @@ def update_readme(readme_path="README.md"):
 ---
 
 ### 🚀 Stack & Technologies
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
 
 </div>
 """
