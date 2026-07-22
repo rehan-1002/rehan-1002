@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 370" width="480" height="370">
+<defs>
+
+        <filter id="neon-glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <linearGradient id="card-border-info" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff9e3b" stop-opacity="0.6"/>
+            <stop offset="50%" stop-color="#00f3ff" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#39d353" stop-opacity="0.6"/>
+        </linearGradient>
+        <linearGradient id="divider-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff9e3b"/>
+            <stop offset="50%" stop-color="#00f3ff"/>
+            <stop offset="100%" stop-color="#bd93f9"/>
+        </linearGradient>
+    
+</defs>
+<style>
+
+        .bg-card { fill: #0d1117; stroke: url(#card-border-info); stroke-width: 1.5px; rx: 12px; }
+        .window-header { fill: #161b22; rx: 12px; }
+        .term-dot-red { fill: #ff5f56; }
+        .term-dot-yellow { fill: #ffbd2e; }
+        .term-dot-green { fill: #27c93f; }
+        .header-title { font-family: 'Fira Code', Monaco, Consolas, monospace; font-size: 11px; fill: #8b949e; font-weight: 600; }
+        
+        .neo-title { font-family: 'Fira Code', Monaco, monospace; font-size: 15px; font-weight: 800; fill: #ff9e3b; }
+        .neo-host { font-family: 'Fira Code', Monaco, monospace; font-size: 13px; font-weight: 600; fill: #00f3ff; }
+        
+        .label-orange { font-family: 'Fira Code', monospace; font-size: 11.5px; font-weight: bold; fill: #ff9e3b; }
+        .label-blue { font-family: 'Fira Code', monospace; font-size: 11.5px; font-weight: bold; fill: #00f3ff; }
+        .label-green { font-family: 'Fira Code', monospace; font-size: 11.5px; font-weight: bold; fill: #39d353; }
+        .label-purple { font-family: 'Fira Code', monospace; font-size: 11.5px; font-weight: bold; fill: #bd93f9; }
+        .label-white { font-family: 'Fira Code', monospace; font-size: 11.5px; font-weight: bold; fill: #f0f6fc; }
+        .val-text { font-family: 'Fira Code', Monaco, monospace; font-size: 11.5px; fill: #c9d1d9; }
+        .badge-bg { rx: 4px; }
+    
+</style>
+<rect width="476" height="366" x="2" y="2" class="bg-card"/>
+<path d="M 2 14 A 12 12 0 0 1 14 2 L 466 2 A 12 12 0 0 1 478 14 L 478 36 L 2 36 Z" fill="#161b22"/>
+<line x1="2" y1="36" x2="478" y2="36" stroke="#21262d" stroke-width="1"/>
+<circle cx="18" cy="19" r="5.5" class="term-dot-red"/>
+<circle cx="34" cy="19" r="5.5" class="term-dot-yellow"/>
+<circle cx="50" cy="19" r="5.5" class="term-dot-green"/>
+<text x="240.0" y="23" text-anchor="middle" class="header-title">neofetch --sysinfo</text>
+<g transform="translate(24, 60)">
+<text x="0" y="0" class="neo-title">rehan-1002</text>
+<text x="80" y="0" class="neo-host">@Rehan</text>
+<rect x="0" y="8" width="432" height="2" fill="url(#divider-grad)" rx="1">
+<animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+</rect>
+</g>
+<g transform="translate(24, 96.0)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.0s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,106.0; 24,96.0" begin="0.0s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-orange">🟧 ABOUT        :</text>
+<text x="145" y="12" class="val-text">Full-Stack Software Engineer & Open Source Builder</text>
+</g>
+<g transform="translate(24, 124.5)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.06s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,134.5; 24,124.5" begin="0.06s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-purple">🟪 LOCATION     :</text>
+<text x="145" y="12" class="val-text">Neo-Tokyo // Remote</text>
+</g>
+<g transform="translate(24, 153.0)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.12s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,163.0; 24,153.0" begin="0.12s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-green">🟢 STATUS       :</text>
+<text x="145" y="12" class="val-text">🟢 Architecting High-Performance Systems</text>
+</g>
+<g transform="translate(24, 181.5)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.18s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,191.5; 24,181.5" begin="0.18s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-blue">🟦 PUBLIC REPOS :</text>
+<text x="145" y="12" class="val-text">42 Repositories // 1.2k+ Stars</text>
+</g>
+<g transform="translate(24, 210.0)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.24s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,220.0; 24,210.0" begin="0.24s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-orange">🟧 CORE STACK   :</text>
+<text x="145" y="12" class="val-text">Python • TypeScript • React • Next.js • Docker</text>
+</g>
+<g transform="translate(24, 238.5)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.3s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,248.5; 24,238.5" begin="0.3s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-purple">🟪 ARCHITECTURE :</text>
+<text x="145" y="12" class="val-text">SMIL SVG • Microservices • Distributed Systems</text>
+</g>
+<g transform="translate(24, 267.0)" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.36s" dur="0.25s" fill="freeze"/>
+<animateTransform attributeName="transform" type="translate" values="24,277.0; 24,267.0" begin="0.36s" dur="0.25s" fill="freeze"/>
+<text x="0" y="12" class="label-green">🟩 UPTIME       :</text>
+<text x="145" y="12" class="val-text">99.99% Continuous Deployment</text>
+</g>
+<g transform="translate(24, 307.5)">
+<rect x="0" y="0" width="20" height="12" fill="#161b22" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.52s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="24" y="0" width="20" height="12" fill="#ff5555" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.55s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="48" y="0" width="20" height="12" fill="#50fa7b" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.58s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="72" y="0" width="20" height="12" fill="#f1fa8c" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.61s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="96" y="0" width="20" height="12" fill="#bd93f9" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.64s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="120" y="0" width="20" height="12" fill="#ff79c6" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.67s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="144" y="0" width="20" height="12" fill="#8be9fd" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.70s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="168" y="0" width="20" height="12" fill="#f8f8f2" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.73s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="0" y="15" width="20" height="12" fill="#6272a4" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.77s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="24" y="15" width="20" height="12" fill="#ff6e6e" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.80s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="48" y="15" width="20" height="12" fill="#69ff94" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.83s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="72" y="15" width="20" height="12" fill="#ffffa5" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.86s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="96" y="15" width="20" height="12" fill="#d6acff" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.89s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="120" y="15" width="20" height="12" fill="#ff92d0" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.92s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="144" y="15" width="20" height="12" fill="#a4ffff" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.95s" dur="0.15s" fill="freeze"/>
+</rect>
+<rect x="168" y="15" width="20" height="12" fill="#ffffff" rx="3" opacity="0">
+<animate attributeName="opacity" values="0;1" begin="0.98s" dur="0.15s" fill="freeze"/>
+</rect>
+</g>
+</svg>
