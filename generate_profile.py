@@ -21,6 +21,15 @@ LOCATION = "Neo-Tokyo // Remote"
 STATUS = "🟢 Architecting High-Performance Systems"
 BIO = "Building sleek web apps, distributed systems, and SMIL graphics."
 
+SOCIALS = {
+    "LinkedIn": "https://linkedin.com/in/rehan-1002",
+    "GitHub": "https://github.com/rehan-1002",
+    "Email": "mailto:rehan@example.com",
+    "Twitter": "https://twitter.com/rehan-1002",
+    "Portfolio": "https://rehan-1002.github.io",
+}
+
+
 STACK_ITEMS = [
     ("HTML5", "#E34F26"),
     ("CSS3", "#1572B6"),
@@ -333,9 +342,10 @@ def build_info_card_svg(output_path="info-card.svg"):
         ("FRONTEND", "HTML5 • CSS3 • JS • React • Next.js • Tailwind", "label-blue", "🟦"),
         ("BACKEND & DB", "Node.js • Express • Python • MongoDB • Supabase", "label-green", "🟩"),
         ("CLOUD & HOST", "Vercel • Render • Netlify • Firebase • Docker", "label-purple", "🟪"),
-        ("TOOLS & VCS", "Git • GitHub • Postman • VS Code", "label-white", "⬜"),
+        ("CONNECT", "LinkedIn • GitHub • Email • Twitter • Portfolio", "label-white", "🌐"),
         ("STATUS", STATUS, "label-green", "🟢"),
     ]
+
 
     start_y = 96
     row_height = 29.5
@@ -571,6 +581,27 @@ def update_readme(readme_path="README.md"):
 
 ---
 
+### 🌐 Connect With Me
+<p align="center">
+  <a href="https://linkedin.com/in/rehan-1002" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/rehan-1002" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="mailto:rehan@example.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://twitter.com/rehan-1002" target="_blank">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
+  </a>
+  <a href="https://rehan-1002.github.io" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-00F3FF?style=for-the-badge&logo=vercel&logoColor=black" />
+  </a>
+</p>
+
+---
+
 ### 🚀 Stack & Technologies
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -592,9 +623,8 @@ def update_readme(readme_path="README.md"):
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-
-
 </div>
+
 """
 
     with open(readme_path, "w", encoding="utf-8") as f:

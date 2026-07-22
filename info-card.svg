@@ -77,8 +77,8 @@
 </g>
 <g transform="translate(24, 214.0)">
 <animate attributeName="opacity" values="0.4;1" begin="0.2s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-white">⬜ TOOLS &amp; VCS  :</text>
-<text x="165" y="12" class="val-text">Git • GitHub • Postman • VS Code</text>
+<text x="0" y="12" class="label-white">🌐 CONNECT          :</text>
+<text x="165" y="12" class="val-text">LinkedIn • GitHub • Email • Twitter • Portfolio</text>
 </g>
 <g transform="translate(24, 243.5)">
 <animate attributeName="opacity" values="0.4;1" begin="0.25s" dur="0.2s" fill="freeze"/>
