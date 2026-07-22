@@ -348,10 +348,15 @@ def build_info_card_svg(output_path="info-card.svg"):
         svg.append(f'<g transform="translate(24, {y_pos})">')
         svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{delay}s" dur="0.2s" fill="freeze"/>')
 
+        # Escape XML special characters
+        safe_label = label.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        safe_val = val.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
         # Icon + Label
-        svg.append(f'<text x="0" y="12" class="{color_cls}">{icon} {label.ljust(13)}:</text>')
+        svg.append(f'<text x="0" y="12" class="{color_cls}">{icon} {safe_label.ljust(17)}:</text>')
         # Value Text
-        svg.append(f'<text x="155" y="12" class="val-text">{val}</text>')
+        svg.append(f'<text x="165" y="12" class="val-text">{safe_val}</text>')
+
 
         svg.append('</g>')
 

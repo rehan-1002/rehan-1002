@@ -57,33 +57,33 @@
 </g>
 <g transform="translate(24, 96.0)">
 <animate attributeName="opacity" values="0.4;1" begin="0.0s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-orange">🟧 ABOUT        :</text>
-<text x="155" y="12" class="val-text">Full-Stack Software Engineer & Open Source Builder</text>
+<text x="0" y="12" class="label-orange">🟧 ABOUT            :</text>
+<text x="165" y="12" class="val-text">Full-Stack Software Engineer &amp; Open Source Builder</text>
 </g>
 <g transform="translate(24, 125.5)">
 <animate attributeName="opacity" values="0.4;1" begin="0.05s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-blue">🟦 FRONTEND     :</text>
-<text x="155" y="12" class="val-text">HTML5 • CSS3 • JS • React • Next.js • Tailwind</text>
+<text x="0" y="12" class="label-blue">🟦 FRONTEND         :</text>
+<text x="165" y="12" class="val-text">HTML5 • CSS3 • JS • React • Next.js • Tailwind</text>
 </g>
 <g transform="translate(24, 155.0)">
 <animate attributeName="opacity" values="0.4;1" begin="0.1s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-green">🟩 BACKEND & DB :</text>
-<text x="155" y="12" class="val-text">Node.js • Express • Python • MongoDB • Supabase</text>
+<text x="0" y="12" class="label-green">🟩 BACKEND &amp; DB :</text>
+<text x="165" y="12" class="val-text">Node.js • Express • Python • MongoDB • Supabase</text>
 </g>
 <g transform="translate(24, 184.5)">
 <animate attributeName="opacity" values="0.4;1" begin="0.15s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-purple">🟪 CLOUD & HOST :</text>
-<text x="155" y="12" class="val-text">Vercel • Render • Netlify • Firebase • Docker</text>
+<text x="0" y="12" class="label-purple">🟪 CLOUD &amp; HOST :</text>
+<text x="165" y="12" class="val-text">Vercel • Render • Netlify • Firebase • Docker</text>
 </g>
 <g transform="translate(24, 214.0)">
 <animate attributeName="opacity" values="0.4;1" begin="0.2s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-white">⬜ TOOLS & VCS  :</text>
-<text x="155" y="12" class="val-text">Git • GitHub • Postman • VS Code</text>
+<text x="0" y="12" class="label-white">⬜ TOOLS &amp; VCS  :</text>
+<text x="165" y="12" class="val-text">Git • GitHub • Postman • VS Code</text>
 </g>
 <g transform="translate(24, 243.5)">
 <animate attributeName="opacity" values="0.4;1" begin="0.25s" dur="0.2s" fill="freeze"/>
-<text x="0" y="12" class="label-green">🟢 STATUS       :</text>
-<text x="155" y="12" class="val-text">🟢 Architecting High-Performance Systems</text>
+<text x="0" y="12" class="label-green">🟢 STATUS           :</text>
+<text x="165" y="12" class="val-text">🟢 Architecting High-Performance Systems</text>
 </g>
 <g transform="translate(24, 285.0)">
 <rect x="0" y="0" width="20" height="12" fill="#161b22" rx="3"/>
