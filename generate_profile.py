@@ -186,10 +186,10 @@ def build_terminal_card_svg(output_path="terminal-card.svg", username=USERNAME):
                        .replace('>', '&gt;')
                        .replace(' ', '&#160;'))
 
-        # Row container with SMIL line reveal and sweep cursor
-        svg.append(f'<g opacity="0">')
+        # Row container with default opacity 1 for instant visibility
+        svg.append(f'<g opacity="1">')
         # Line reveal animation
-        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{delay}s" dur="0.05s" fill="freeze"/>')
+        svg.append(f'<animate attributeName="opacity" values="0.3;1" begin="{delay}s" dur="0.15s" fill="freeze"/>')
         
         # ASCII Row Text
         svg.append(f'<text x="0" y="{y_pos}" fill="{color}" class="ascii-text">{safe_row}</text>')
@@ -197,9 +197,9 @@ def build_terminal_card_svg(output_path="terminal-card.svg", username=USERNAME):
         # Sweeping White Glint/Cursor block animation across the line
         cursor_delay = delay
         cursor_dur = 0.06
-        svg.append(f'<rect x="0" y="{y_pos - 9}" width="8" height="10" fill="#ffffff" opacity="0.9" filter="url(#neon-glow-cyan)">')
+        svg.append(f'<rect x="0" y="{y_pos - 9}" width="8" height="10" fill="#ffffff" opacity="0.8" filter="url(#neon-glow-cyan)">')
         svg.append(f'<animate attributeName="x" values="0;400" begin="{cursor_delay}s" dur="{cursor_dur}s" fill="freeze"/>')
-        svg.append(f'<animate attributeName="opacity" values="0.9;0" begin="{cursor_delay + cursor_dur}s" dur="0.02s" fill="freeze"/>')
+        svg.append(f'<animate attributeName="opacity" values="0.8;0" begin="{cursor_delay + cursor_dur}s" dur="0.02s" fill="freeze"/>')
         svg.append('</rect>')
 
         svg.append('</g>')
@@ -221,24 +221,21 @@ def build_terminal_card_svg(output_path="terminal-card.svg", username=USERNAME):
     # Command typed out
     cmd_str = f"whoami --profile {username}"
     typed_id = "typed_cmd"
-    svg.append(f'<text x="36" y="0" fill="#f8f8f2" class="cmd-text">')
-    svg.append(f'<animate attributeName="display" values="none;inline" begin="{cmd_start_time}s" fill="freeze"/>')
-    svg.append(cmd_str)
-    svg.append('</text>')
+    svg.append(f'<text x="36" y="0" fill="#f8f8f2" class="cmd-text">{cmd_str}</text>')
 
-    # Output response line
+    # Output response line (Default opacity 1)
     resp_start_time = cmd_start_time + 0.5
-    svg.append(f'<g opacity="0" transform="translate(0, 18)">')
+    svg.append(f'<g opacity="1" transform="translate(0, 18)">')
     svg.append(f'<animate attributeName="opacity" values="0;1" begin="{resp_start_time}s" dur="0.2s" fill="freeze"/>')
     svg.append(f'<text x="0" y="0" fill="#00f3ff" class="cmd-text" filter="url(#neon-glow-cyan)">⚡ [{DISPLAY_NAME}] :: ACTIVE_SESSION</text>')
     svg.append('</g>')
 
     # Blinking cursor
     cursor_x = 36 + (len(cmd_str) * 7.2)
-    svg.append(f'<rect x="{cursor_x}" y="-10" width="7" height="12" fill="#00f3ff" opacity="0">')
-    svg.append(f'<animate attributeName="opacity" values="0;1" begin="{cmd_start_time}s" dur="0.1s" fill="freeze"/>')
-    svg.append(f'<animate attributeName="opacity" values="1;0;1" begin="{cmd_start_time+0.1}s" dur="0.8s" repeatCount="indefinite"/>')
+    svg.append(f'<rect x="{cursor_x}" y="-10" width="7" height="12" fill="#00f3ff" opacity="1">')
+    svg.append(f'<animate attributeName="opacity" values="1;0;1" begin="0s" dur="0.8s" repeatCount="indefinite"/>')
     svg.append('</rect>')
+
 
     svg.append('</g>')
 
@@ -333,10 +330,10 @@ def build_info_card_svg(output_path="info-card.svg"):
     # Info Items Data Configuration
     info_rows = [
         ("ABOUT", TITLE, "label-orange", "🟧"),
-        ("FRONTEND", "HTML5 • CSS3 • JS • React • Next.js", "label-blue", "🟦"),
-        ("BACKEND & DB", "Node.js • Python • MongoDB • Supabase", "label-green", "🟩"),
-        ("TOOLS & CLOUD", "Git • GitHub • Vercel • Firebase • Docker", "label-purple", "🟪"),
-        ("LOCATION", LOCATION, "label-white", "⬜"),
+        ("FRONTEND", "HTML5 • CSS3 • JS • React • Next.js • Tailwind", "label-blue", "🟦"),
+        ("BACKEND & DB", "Node.js • Express • Python • MongoDB • Supabase", "label-green", "🟩"),
+        ("CLOUD & HOST", "Vercel • Render • Netlify • Firebase • Docker", "label-purple", "🟪"),
+        ("TOOLS & VCS", "Git • GitHub • Postman • VS Code", "label-white", "⬜"),
         ("STATUS", STATUS, "label-green", "🟢"),
     ]
 
@@ -345,11 +342,11 @@ def build_info_card_svg(output_path="info-card.svg"):
 
     for idx, (label, val, color_cls, icon) in enumerate(info_rows):
         y_pos = start_y + (idx * row_height)
-        delay = round(idx * 0.02, 2)  # Fast instant loading
+        delay = round(idx * 0.02, 2)
 
-        # Staggered slide-up & fade-in SMIL animation
-        svg.append(f'<g transform="translate(24, {y_pos})" opacity="0">')
-        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{delay}s" dur="0.15s" fill="freeze"/>')
+        # Slide-up & fade-in SMIL animation with fallback opacity="1"
+        svg.append(f'<g transform="translate(24, {y_pos})" opacity="1">')
+        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{delay}s" dur="0.15s" fill="freeze"/>')
         svg.append(f'<animateTransform attributeName="transform" type="translate" values="24,{y_pos+5}; 24,{y_pos}" begin="{delay}s" dur="0.15s" fill="freeze"/>')
 
         # Icon + Label
@@ -368,21 +365,22 @@ def build_info_card_svg(output_path="info-card.svg"):
 
     svg.append(f'<g transform="translate(24, {palette_y})">')
     
-    # Render palette blocks row 1
+    # Render palette blocks row 1 (fallback opacity="1")
     for b_idx, col in enumerate(colors_row1):
         b_delay = block_delay_start + (b_idx * 0.03)
         bx = b_idx * 24
-        svg.append(f'<rect x="{bx}" y="0" width="20" height="12" fill="{col}" rx="3" opacity="0">')
-        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
+        svg.append(f'<rect x="{bx}" y="0" width="20" height="12" fill="{col}" rx="3" opacity="1">')
+        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
         svg.append('</rect>')
 
-    # Render palette blocks row 2
+    # Render palette blocks row 2 (fallback opacity="1")
     for b_idx, col in enumerate(colors_row2):
         b_delay = block_delay_start + 0.25 + (b_idx * 0.03)
         bx = b_idx * 24
-        svg.append(f'<rect x="{bx}" y="15" width="20" height="12" fill="{col}" rx="3" opacity="0">')
-        svg.append(f'<animate attributeName="opacity" values="0;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
+        svg.append(f'<rect x="{bx}" y="15" width="20" height="12" fill="{col}" rx="3" opacity="1">')
+        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
         svg.append('</rect>')
+
 
     svg.append('</g>') # End palette group
 
@@ -499,11 +497,12 @@ def build_contribution_svg(output_path="github-contribution-animation.svg"):
             # Group for each square
             svg.append(f'<g transform="translate({x:.1f}, {y:.1f})">')
 
-            # Base Square (Animates opacity and zoom scale)
-            svg.append(f'<rect width="{square_size}" height="{square_size}" rx="2" ry="2" fill="{color_cfg["bg"]}" stroke="{color_cfg["border"]}" stroke-width="0.8" {filter_attr} opacity="0">')
-            svg.append(f'<animate attributeName="opacity" values="0;1" begin="{delay}s" dur="0.25s" fill="freeze"/>')
+            # Base Square (Default opacity 1 for instant display)
+            svg.append(f'<rect width="{square_size}" height="{square_size}" rx="2" ry="2" fill="{color_cfg["bg"]}" stroke="{color_cfg["border"]}" stroke-width="0.8" {filter_attr} opacity="1">')
+            svg.append(f'<animate attributeName="opacity" values="0.3;1" begin="{delay}s" dur="0.25s" fill="freeze"/>')
             svg.append(f'<animateTransform attributeName="transform" type="scale" values="0.1;1.2;1" begin="{delay}s" dur="0.3s" fill="freeze" transform-origin="{square_size/2} {square_size/2}"/>')
             svg.append('</rect>')
+
 
             # Specular Glint Highlight Flash (white/green flash as square settles)
             glint_color = "#ffffff" if level < 3 else "#39d353"
@@ -577,17 +576,23 @@ def update_readme(readme_path="README.md"):
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
 
 
 </div>
