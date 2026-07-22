@@ -342,12 +342,11 @@ def build_info_card_svg(output_path="info-card.svg"):
 
     for idx, (label, val, color_cls, icon) in enumerate(info_rows):
         y_pos = start_y + (idx * row_height)
-        delay = round(idx * 0.02, 2)
+        delay = round(idx * 0.05, 2)
 
-        # Slide-up & fade-in SMIL animation with fallback opacity="1"
-        svg.append(f'<g transform="translate(24, {y_pos})" opacity="1">')
-        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{delay}s" dur="0.15s" fill="freeze"/>')
-        svg.append(f'<animateTransform attributeName="transform" type="translate" values="24,{y_pos+5}; 24,{y_pos}" begin="{delay}s" dur="0.15s" fill="freeze"/>')
+        # Clean row group (100% standard SVG 1.1 compliant)
+        svg.append(f'<g transform="translate(24, {y_pos})">')
+        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{delay}s" dur="0.2s" fill="freeze"/>')
 
         # Icon + Label
         svg.append(f'<text x="0" y="12" class="{color_cls}">{icon} {label.ljust(13)}:</text>')
@@ -361,25 +360,24 @@ def build_info_card_svg(output_path="info-card.svg"):
     colors_row1 = ["#161b22", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#f8f8f2"]
     colors_row2 = ["#6272a4", "#ff6e6e", "#69ff94", "#ffffa5", "#d6acff", "#ff92d0", "#a4ffff", "#ffffff"]
 
-    block_delay_start = round(len(info_rows) * 0.02 + 0.05, 2)
+    block_delay_start = round(len(info_rows) * 0.05 + 0.05, 2)
 
     svg.append(f'<g transform="translate(24, {palette_y})">')
     
-    # Render palette blocks row 1 (fallback opacity="1")
+    # Render palette blocks row 1
     for b_idx, col in enumerate(colors_row1):
         b_delay = block_delay_start + (b_idx * 0.03)
         bx = b_idx * 24
-        svg.append(f'<rect x="{bx}" y="0" width="20" height="12" fill="{col}" rx="3" opacity="1">')
-        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
-        svg.append('</rect>')
+        svg.append(f'<rect x="{bx}" y="0" width="20" height="12" fill="{col}" rx="3"/>')
+        svg.append(f'<animate attributeName="opacity" values="0.5;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
 
-    # Render palette blocks row 2 (fallback opacity="1")
+    # Render palette blocks row 2
     for b_idx, col in enumerate(colors_row2):
-        b_delay = block_delay_start + 0.25 + (b_idx * 0.03)
+        b_delay = block_delay_start + 0.2 + (b_idx * 0.03)
         bx = b_idx * 24
-        svg.append(f'<rect x="{bx}" y="15" width="20" height="12" fill="{col}" rx="3" opacity="1">')
-        svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
-        svg.append('</rect>')
+        svg.append(f'<rect x="{bx}" y="15" width="20" height="12" fill="{col}" rx="3"/>')
+        svg.append(f'<animate attributeName="opacity" values="0.5;1" begin="{b_delay:.2f}s" dur="0.15s" fill="freeze"/>')
+
 
 
     svg.append('</g>') # End palette group
@@ -497,11 +495,10 @@ def build_contribution_svg(output_path="github-contribution-animation.svg"):
             # Group for each square
             svg.append(f'<g transform="translate({x:.1f}, {y:.1f})">')
 
-            # Base Square (Default opacity 1 for instant display)
-            svg.append(f'<rect width="{square_size}" height="{square_size}" rx="2" ry="2" fill="{color_cfg["bg"]}" stroke="{color_cfg["border"]}" stroke-width="0.8" {filter_attr} opacity="1">')
-            svg.append(f'<animate attributeName="opacity" values="0.3;1" begin="{delay}s" dur="0.25s" fill="freeze"/>')
-            svg.append(f'<animateTransform attributeName="transform" type="scale" values="0.1;1.2;1" begin="{delay}s" dur="0.3s" fill="freeze" transform-origin="{square_size/2} {square_size/2}"/>')
-            svg.append('</rect>')
+            # Base Square (100% standard SVG 1.1 compliant)
+            svg.append(f'<rect width="{square_size}" height="{square_size}" rx="2" ry="2" fill="{color_cfg["bg"]}" stroke="{color_cfg["border"]}" stroke-width="0.8" {filter_attr}/>')
+            svg.append(f'<animate attributeName="opacity" values="0.4;1" begin="{delay}s" dur="0.25s" fill="freeze"/>')
+
 
 
             # Specular Glint Highlight Flash (white/green flash as square settles)
@@ -554,21 +551,18 @@ def update_readme(readme_path="README.md"):
 ---
 
 <!-- CYBERPUNK PROFILE CARDS ROW -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="./terminal-card.svg" width="100%" alt="Terminal ASCII Portrait" />
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="./info-card.svg" width="100%" alt="Neofetch Info Card" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/terminal-card.svg" width="49%" alt="Terminal ASCII Portrait" />
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/info-card.svg" width="49%" alt="Neofetch Info Card" />
+</p>
 
 <br />
 
 <!-- GITHUB CONTRIBUTION GRAPH ANIMATION -->
-<img src="./github-contribution-animation.svg" width="100%" alt="GitHub Contribution Graph Animation" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/github-contribution-animation.svg" width="100%" alt="GitHub Contribution Graph Animation" />
+</p>
+
 
 ---
 

@@ -14,21 +14,18 @@
 ---
 
 <!-- CYBERPUNK PROFILE CARDS ROW -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="./terminal-card.svg" width="100%" alt="Terminal ASCII Portrait" />
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="./info-card.svg" width="100%" alt="Neofetch Info Card" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/terminal-card.svg" width="49%" alt="Terminal ASCII Portrait" />
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/info-card.svg" width="49%" alt="Neofetch Info Card" />
+</p>
 
 <br />
 
 <!-- GITHUB CONTRIBUTION GRAPH ANIMATION -->
-<img src="./github-contribution-animation.svg" width="100%" alt="GitHub Contribution Graph Animation" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rehan-1002/rehan-1002/main/github-contribution-animation.svg" width="100%" alt="GitHub Contribution Graph Animation" />
+</p>
+
 
 ---
 
